@@ -9,10 +9,11 @@ let timer;
 const headerUserName = document.querySelector("header h1 #name");
 const headerUserId = document.querySelector("header h1 #userId");
 const headerStatus = document.querySelector("header #status");
+const headerOnline = document.querySelector('header #online');
 const pseudo = document.querySelector("#pseudo");
 const idle = document.querySelector("#idle");
 const btn = document.querySelector("#btn");
-const sidePanel = document.querySelector("aside #content");
+const sidePanel = document.querySelector("footer #content");
 
 const dataInterpreter = (datas) => {
   for (let d in datas) {
@@ -31,6 +32,10 @@ const dataInterpreter = (datas) => {
           headerUserId.textContent = `(${userId})`;
           document.title = `Client ${userName} ${userId}`;
         break;
+        case "online":
+          headerOnline.textContent = `${datas[d]} is online`;
+          console.log(datas);
+          break;
       default:
         break;
     }

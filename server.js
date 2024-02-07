@@ -93,10 +93,17 @@ const commandInterpreter = (cmd) => {
         console.log("Status");
         break;
       case "Alive":
+        // isAlive(Date.now());
         let userObj = usersArray.find(u => u.id == currentUser);
+        let otherUser = usersArray.find(u => u.id != currentUser);
+        if (usersArray.length > 1) {
+          // console.log('OTHER : ',otherUser);
+          answer = {online : `${otherUser.user}`};
+        } else {
+          answer = "Staying alive!";
+        }
         userObj.updateUser(Date.now());
-        console.log(userObj);
-        answer = "Staying alive!"
+        // console.log(userObj);
         break
       default:
         break;
