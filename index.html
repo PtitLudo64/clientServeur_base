@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client</title>
+    <link rel="stylesheet" href="css/client.css">
+</head>
+<body>
+    <header>
+        <h1>Client <span id="name"></span> <span id="userId"></span></h1>
+        <div id="status"></div>
+    </header>
+    <main>
+        <form>
+            <label for="pseudo">Votre pseudo</label>
+            <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo">
+            <!-- <label for="idle">status</label>
+            <input type="checkbox" name="status" id="idle" value="idle"> -->
+            <button type="button" id="btn">Connecter</button>
+        </form>
+    </main>
+    <footer>
+        <header>
+            <h2>Server Response</h2>
+        </header>
+        <p id="content"></p>
+    </footer>
+
+    <script src="js/client.js"></script>
+</body>
+</html>
