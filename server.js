@@ -124,6 +124,10 @@ httpServer.on('connection', (stream) => {
   console.log('someone connected!');
 });
 
+httpServer.on('disconnect', stream => {
+  console.log('CLOSE :', stream);
+});
+
 httpServer.on('request', async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");

@@ -1,6 +1,9 @@
 const myURL = "192.168.1.66";
 const myPort = "1234";
 
+// const myURL = "paw-design.alwaydata.net/srvtest";
+// const myPort = "8100";
+
 let userName = "";
 let userId = 0;
 let isConnected=false;
