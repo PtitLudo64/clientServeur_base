@@ -27,6 +27,21 @@ header h1 #userId {
     font-size: 1.5rem;
 }
 
+aside {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    height: calc(100% - 55px - 141px);
+    width: 200px;
+    border: 1px solid #000;
+    #title {
+        border-bottom: 1px solid #000;
+        padding: .5rem;
+        background-color: #333;
+        color: #f1f1f1;
+    }
+}
+
 footer {
     position: absolute;
     bottom: 0;

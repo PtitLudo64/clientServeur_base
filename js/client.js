@@ -1,5 +1,7 @@
 const myURL = "192.168.1.66";
 const myPort = "1234";
+const emojis = ['👨', '🧔', '🧔‍♀️', '👩', '🧓', '👴', '👵', '👨‍🚀', '👨‍🎓', '👨‍🚒', '👨‍🔧'];
+let rndNumber = Math.floor(Math.random() * emojis.length);
 
 // const myURL = "paw-design.alwaydata.net/srvtest";
 // const myPort = "8100";
@@ -12,7 +14,7 @@ let timer;
 const headerUserName = document.querySelector("header h1 #name");
 const headerUserId = document.querySelector("header h1 #userId");
 const headerStatus = document.querySelector("header #status");
-const headerOnline = document.querySelector('header #online');
+const asideOnline = document.querySelector('aside #online');
 const pseudo = document.querySelector("#pseudo");
 const idle = document.querySelector("#idle");
 const btn = document.querySelector("#btn");
@@ -36,9 +38,8 @@ const dataInterpreter = (datas) => {
           document.title = `Client ${userName} ${userId}`;
         break;
         case "online":
-          headerOnline.textContent = `${datas[d]} is online`;
-          console.log(datas);
-          break;
+          asideOnline.textContent = datas[d] != '' ? `${emojis[rndNumber]} ${datas[d]}` : '';
+        break;
       default:
         break;
     }

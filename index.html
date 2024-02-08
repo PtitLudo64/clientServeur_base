@@ -9,15 +9,17 @@
 <body>
     <header>
         <h1>Client <span id="name"></span> <span id="userId"></span></h1>
-        <div id="online"></div>
+        
         <div id="status"></div>
     </header>
     <main>
+        <aside>
+            <div id="title">Online</div>
+            <div id="online"></div>
+        </aside>
         <form>
             <label for="pseudo">Votre pseudo</label>
             <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo">
-            <!-- <label for="idle">status</label>
-            <input type="checkbox" name="status" id="idle" value="idle"> -->
             <button type="button" id="btn">Connecter</button>
         </form>
     </main>

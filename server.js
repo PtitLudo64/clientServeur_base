@@ -2,6 +2,8 @@ const httpInstance = require("http");
 const portNumber = 1234;
 const maxUsers = 2;
 const usersArray = [];
+const timeOut = 2500;
+const emojis = ['👨', '🧔', '🧔‍♀️', '👩', '🧓', '👴', '👵', '👨‍🚀', '👨‍🎓', '👨‍🚒', '👨‍🔧'];
 
 let OutString = "";
 let answer = "";
@@ -58,7 +60,7 @@ const toObj = (...anArray) => {
 
 const isAlive = (d) => {
   usersArray.forEach( (user, idx) => {
-    if (d - user.lastVisit > 2000) {
+    if (d - user.lastVisit > timeOut) {
       console.log(`User ${user.user} has left. 😞 ${idx}`);
       usersArray.splice(idx, 1);
       console.table(usersArray);
@@ -90,20 +92,26 @@ const commandInterpreter = (cmd) => {
           currentUser = cmd[c];
         break;
       case "Status":
-        console.log("Status");
         break;
       case "Alive":
-        // isAlive(Date.now());
         let userObj = usersArray.find(u => u.id == currentUser);
-        let otherUser = usersArray.find(u => u.id != currentUser);
+        let otherUser = usersArray.find((u) => u.id != currentUser);
+        if (otherUser) {
+          let d = Date.now();
+          if (d - otherUser.lastVisit > timeOut) {
+            let index = usersArray.findIndex(u => u.id === otherUser.id)
+            console.log(`${otherUser.user} is gone!`, index);
+            usersArray.splice(index, 1);
+            console.table(usersArray);
+          }
+        }
         if (usersArray.length > 1) {
           // console.log('OTHER : ',otherUser);
           answer = {online : `${otherUser.user}`};
         } else {
-          answer = "Staying alive!";
+          answer = {online : ''};
         }
         userObj.updateUser(Date.now());
-        // console.log(userObj);
         break
       default:
         break;
